@@ -7,7 +7,7 @@ Single-page marketing site promoting sponsorship opportunities for Samay Raina's
 - Hero banner swaps between `desktop.jpg`, `tablet.jpg`, and `Phone.jpg`, fading in via GSAP for device-specific promo art.
 - Sponsorship popup capturing the same five lead details via the identical city dropdown.
 - About and Audience sections showcasing reach, demographics, and a feature portrait of Samay Raina.
-- Interactive pricing selector that reveals package inclusions and venue capacities.
+- Interactive pricing selector that reveals show information (date, time, attendees, venue) alongside package inclusions.
 - Contact form now streamlined to the same five lead fields with quick contact actions.
 - GSAP-driven hero timeline and ScrollTrigger scroll-based reveals.
 
@@ -19,6 +19,7 @@ Single-page marketing site promoting sponsorship opportunities for Samay Raina's
 | About Section | `index.html` (`#about`) | Stats, achievements, and highlights for Samay Raina |
 | Audience & Tour Snapshot | `index.html` (`#audience`) | City list, target demographics, and benefits |
 | Pricing Selector | `index.html` (`#packages`), `script.js` (`updatePricing`) | City/type selectors with dynamic inclusions list and venue capacities |
+| Pricing Selector | `index.html` (`#packages`), `script.js` (`updatePricing`) | City/type selectors with dynamic show information and package inclusions |
 | Contact Section | `index.html` (`#contact`) | Streamlined form with consistent city dropdown plus quick contact actions |
 | Global Styles | `styles.css` | Layout, typography, color palette, responsive rules |
 | Animations | `script.js` (`initAnimations`) | GSAP hero timeline, ScrollTrigger scroll reveals |
@@ -43,7 +44,7 @@ Single-page marketing site promoting sponsorship opportunities for Samay Raina's
 ## Testing Checklist
 - Open the site and confirm the hero banner image fades into view.
 - Scroll to About/Audience/Packages/Contact; ensure elements fade/flip in (when ScrollTrigger available).
-- Select city and sponsorship type; verify pricing data (including venue capacity) updates correctly.
+- Select city and sponsorship type; verify pricing data (including show information) updates correctly.
 - Submit each form; an alert should confirm receipt, and forms should reset.
 
 ## Maintenance Notes

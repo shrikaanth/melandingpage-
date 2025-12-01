@@ -171,6 +171,81 @@ const venueCapacities = {
     'Dallas': 2386
 };
 
+const showSchedule = {
+    'Washington DC': {
+        date: 'Fri, February 6',
+        time: '8:30 PM',
+        attendees: '1,500',
+        venue: 'Cramton Auditorium'
+    },
+    'Boston': {
+        date: 'Sat, February 7',
+        time: '8:00 PM',
+        attendees: '1,700',
+        venue: 'Emerson Colonial Theatre'
+    },
+    'Atlanta': {
+        date: 'Sun, February 8',
+        time: '8:00 PM',
+        attendees: '1,050',
+        venue: 'Center Stage Theatre'
+    },
+    'Montreal': {
+        date: 'Fri, February 13',
+        time: '9:00 PM',
+        attendees: '1,165',
+        venue: 'Rialto Theatre'
+    },
+    'Toronto': {
+        date: 'Sat, February 14',
+        time: ['4:00 PM', '8:00 PM'],
+        attendees: '3,172',
+        venue: 'Meridian Hall'
+    },
+    'Vancouver': {
+        date: 'Sun, February 15',
+        time: '8:00 PM',
+        attendees: '1,260',
+        venue: 'Massey Theatre'
+    },
+    'Los Angeles': {
+        date: 'Fri, February 20',
+        time: '8:00 PM',
+        attendees: '1,453',
+        venue: 'Redondo Beach Performing Arts Center'
+    },
+    'San Jose': {
+        date: 'Sat, February 21',
+        time: '8:00 PM',
+        attendees: '2,677',
+        venue: 'San Jose Center for the Performing Arts'
+    },
+    'Seattle': {
+        date: 'Sun, February 22',
+        time: '8:00 PM',
+        attendees: '2,130',
+        venue: 'The 5th Avenue Theatre'
+    },
+    'Chicago': {
+        date: 'Fri, February 27',
+        time: '9:00 PM',
+        attendees: '1,852',
+        venue: 'Copernicus Center'
+    },
+    'New York': {
+        date: 'Sat, February 28',
+        time: '7:00 PM',
+        attendees: '5,600',
+        venue: 'Madison Square Garden Theatre'
+    },
+    'Dallas': {
+        date: 'Sun, March 1',
+        time: '8:00 PM',
+        attendees: '2,386',
+        venue: 'McFarlin Auditorium'
+    }
+};
+
 function initAnimations() {
     if (typeof gsap === 'undefined') {
         animationLog.error('GSAP is not available on the window. Skipping animations.');
@@ -295,8 +370,12 @@ function updatePricing() {
     const pricingPlaceholder = document.getElementById('pricing-placeholder');
     const priceAmount = document.getElementById('price-amount');
     const inclusionsList = document.getElementById('inclusions-list');
+    const showDate = document.getElementById('show-date');
+    const showTime = document.getElementById('show-time');
+    const showAttendees = document.getElementById('show-attendees');
+    const showVenue = document.getElementById('show-venue');
 
-    if (!citySelector || !typeSelector || !pricingDisplay || !pricingPlaceholder || !priceAmount || !inclusionsList) {
+    if (!citySelector || !typeSelector || !pricingDisplay || !pricingPlaceholder || !priceAmount || !inclusionsList || !showDate || !showTime || !showAttendees || !showVenue) {
         console.warn('[Pricing] Missing DOM references; cannot update pricing widget.');
         return;
     }
@@ -330,15 +409,21 @@ function updatePricing() {
 
     priceAmount.textContent = data.price || 'TBD';
 
-    inclusionsList.innerHTML = '';
-    const cityCapacity = venueCapacities[selectedCity];
-
-    if (cityCapacity) {
-        const capacityLi = document.createElement('li');
-        capacityLi.textContent = `Venue capacity: ${cityCapacity.toLocaleString()} seats`;
-        inclusionsList.appendChild(capacityLi);
+    const schedule = showSchedule[selectedCity];
+    if (schedule) {
+        showDate.textContent = schedule.date || 'TBD';
+        const timeValue = Array.isArray(schedule.time) ? schedule.time.join(' • ') : schedule.time;
+        showTime.textContent = timeValue || 'TBD';
+        showAttendees.textContent = schedule.attendees ? `${schedule.attendees} expected` : 'TBD';
+        showVenue.textContent = schedule.venue || 'TBD';
+    } else {
+        showDate.textContent = 'TBD';
+        showTime.textContent = 'TBD';
+        showAttendees.textContent = 'TBD';
+        showVenue.textContent = 'TBD';
     }
 
+    inclusionsList.innerHTML = '';
     (data.inclusions || []).forEach(inclusion => {
         const li = document.createElement('li');
         li.textContent = inclusion;

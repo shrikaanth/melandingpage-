@@ -7,7 +7,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
 
@@ -135,14 +135,13 @@
                     <div class="stat-card">
                         <div class="stat-content">
                             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="9" cy="7" r="4"></circle>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                <rect x="2" y="2" width="20" height="20" rx="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                             </svg>
                             <div>
-                                <div class="stat-number text-red">25,000+</div>
-                                <div class="stat-label">Fans at Mumbai Comeback Tour</div>
+                                <div class="stat-number text-red">7.3M+</div>
+                                <div class="stat-label">Instagram Followers</div>
                             </div>
                         </div>
                     </div>
@@ -398,9 +397,33 @@
                         <div class="price-label">per city</div>
                     </div>
 
-                    <div class="pricing-body">
-                        <h4 class="pricing-title text-red">PACKAGE INCLUDES:</h4>
-                        <ul id="inclusions-list" class="inclusions-list"></ul>
+                    <div class="pricing-layout">
+                        <div class="show-info">
+                            <h4 class="pricing-title text-red">SHOW INFORMATION</h4>
+                            <div class="show-info-grid">
+                                <div class="show-info-item">
+                                    <span class="show-info-label">Date</span>
+                                    <span id="show-date" class="show-info-value"></span>
+                                </div>
+                                <div class="show-info-item">
+                                    <span class="show-info-label">Show Time</span>
+                                    <span id="show-time" class="show-info-value"></span>
+                                </div>
+                                <div class="show-info-item">
+                                    <span class="show-info-label">Attendees</span>
+                                    <span id="show-attendees" class="show-info-value"></span>
+                                </div>
+                                <div class="show-info-item">
+                                    <span class="show-info-label">Venue Name</span>
+                                    <span id="show-venue" class="show-info-value"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="package-includes">
+                            <h4 class="pricing-title text-red">WHAT'S INCLUDED</h4>
+                            <ul id="inclusions-list" class="inclusions-list"></ul>
+                        </div>
                     </div>
 
                     <button onclick="scrollToContact()" class="btn-primary btn-large btn-full">
@@ -481,26 +504,6 @@
                         </button>
                 </form>
 
-                <div class="contact-info">
-                    <h3 class="contact-info-title text-red">CONTACT MILLENNIAL EVENTS</h3>
-
-                    <div class="contact-buttons">
-                        <a href="https://wa.me/14374357538" target="_blank" class="contact-btn whatsapp-btn">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                            </svg>
-                            <span>WhatsApp: +1-437-435-7538</span>
-                        </a>
-
-                        <a href="mailto:Srijan@millennial-events.com" class="contact-btn email-btn">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                <polyline points="22,6 12,13 2,6"></polyline>
-                            </svg>
-                            <span>Srijan@millennial-events.com</span>
-                        </a>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
